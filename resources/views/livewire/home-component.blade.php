@@ -2,7 +2,7 @@
     <div id="carousel" class="carousel slide carousel-fade">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
+                    aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
@@ -139,7 +139,7 @@
                     </div>
                 </div>
 
-                <div class="owl-carousel owl-theme owl-carousel-full">
+                <div class="owl-carousel owl-theme owl-carousel-full" wire:ignore>
                     @foreach ($new_products as $product)
                         <div wire:key="{{ $product->id }}">
                             @include('incs.product-card')
@@ -177,9 +177,9 @@
     </section>
 
     <iframe id="map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2407.1070529675467!2d2.3478712780714384!3d48.85881153486507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1ee52239cb%3A0x2cacf4239af49ccb!2zMTggUnVlIFNhaW50LURlbmlzLCA3NTAwMSBQYXJpcywg0KTRgNCw0L3RhtC40Y8!5e0!3m2!1sru!2sua!4v1683972127217!5m2!1sru!2sua"
-        width="100%" height="450" style="border:0; display: block;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2407.1070529675467!2d2.3478712780714384!3d48.85881153486507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1ee52239cb%3A0x2cacf4239af49ccb!2zMTggUnVlIFNhaW50LURlbmlzLCA3NTAwMSBQYXJpcywg0KTRgNCw0L3RhtC40Y8!5e0!3m2!1sru!2sua!4v1683972127217!5m2!1sru!2sua"
+            width="100%" height="450" style="border:0; display: block;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 @script

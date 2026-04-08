@@ -2,11 +2,14 @@
 
 namespace App\Livewire;
 
+use App\Helpers\Traits\CartTrait;
 use Livewire\Component;
 use App\Models\Product;
 
 class HomeComponent extends Component
 {
+    use CartTrait;
+
     public function render()
     {
         $hit_products = Product::query()
@@ -21,9 +24,9 @@ class HomeComponent extends Component
             ->limit(8)
             ->get();
 
-        return view( 'livewire.home-component', [
+        return view('livewire.home-component', [
             'hit_products' => $hit_products,
             'new_products' => $new_products,
-        ] );
+        ]);
     }
 }
