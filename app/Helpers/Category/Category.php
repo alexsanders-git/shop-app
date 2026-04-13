@@ -111,7 +111,6 @@ class Category
         }
 
         return array_reverse($breadcrumbs);
-
     }
 
 }

@@ -132,12 +132,6 @@
                                 <a class="nav-link active" aria-current="page" href="{{ route('home') }}"
                                    wire:navigate>Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('category') }}" wire:navigate>Category</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('product') }}" wire:navigate>Product</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                    aria-expanded="false" data-bs-auto-close="outside">
