@@ -168,23 +168,30 @@
                         <div class="col-sm-6">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Sort By:</span>
-                                <select class="form-select" aria-label="Sort by:">
-                                    <option selected>Default</option>
-                                    <option value="1">Name (a-z)</option>
-                                    <option value="2">Name (z-a)</option>
-                                    <option value="3">Price (low &gt; high)</option>
-                                    <option value="4">Price (high &gt; low)</option>
+                                <select class="form-select" aria-label="Sort by:" wire:change="changeSort"
+                                        wire:model="sort">
+                                    @foreach ($sortList as $key => $item)
+                                        <option
+                                            value="{{ $key }}"
+                                            @if ($key == $sort) selected @endif
+                                            wire:key="{{ $key }}"
+                                        >
+                                            {{ $item['title'] }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Show:</span>
-                                <select class="form-select" aria-label="Show:">
-                                    <option selected>9</option>
-                                    <option value="15">15</option>
-                                    <option value="30">30</option>
-                                    <option value="45">45</option>
+                                <select class="form-select" aria-label="Show:" wire:change="changeLimit"
+                                        wire:model="limit">
+                                    @foreach ($limitList as $key => $item)
+                                        <option @if ($key == $limit) selected @endif wire:key="{{ $key }}">
+                                            {{ $item }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
