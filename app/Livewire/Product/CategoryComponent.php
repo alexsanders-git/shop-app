@@ -50,6 +50,19 @@ class CategoryComponent extends Component
         $category = Category::query()->where('slug', '=', $this->slug)->firstOrFail();
         $ids = \App\Helpers\Category\Category::getIds($category->id) . $category->id;
 
+        $category_filters = DB::table('category_filters')
+            ->select('category_filters.filter_group_id', 'filter_groups.title', 'filters.id as filter_id', 'filters.title as filter_title')
+            ->join('filter_groups', 'category_filters.filter_group_id', '=', 'filter_groups.id')
+            ->join('filters', 'filters.filter_group_id', '=', 'filter_groups.id')
+            ->whereIn('category_filters.category_id', explode(',', $ids))
+            // ->groupBy('filters.id')
+            ->get();
+
+        $filter_groups = [];
+        foreach ($category_filters as $filter) {
+            $filter_groups[$filter->filter_group_id][] = $filter;
+        }
+
         $products = Product::query()
             ->whereIn('category_id', explode(',', $ids))
             ->orderBy($this->sortList[$this->sort]['order_field'], $this->sortList[$this->sort]['order_direction'])
