@@ -40,9 +40,17 @@ class CategoryComponent extends Component
     #[Url]
     public $max_price;
 
-    public function mount($slug)
+    public function mount(string $slug)
     {
         $this->slug = $slug;
+
+        if (!isset($this->sortList[$this->sort])) {
+            $this->redirectRoute('category', ['slug' => $slug], true);
+        }
+
+        if (!in_array($this->limit, $this->limitList)) {
+            $this->redirectRoute('category', ['slug' => $slug], true);
+        }
     }
 
     public function updated($property)
@@ -62,6 +70,21 @@ class CategoryComponent extends Component
     public function changeLimit()
     {
         $this->limit = in_array($this->limit, $this->limitList) ? $this->limit : $this->limitList[0];
+        $this->resetPage();
+    }
+
+    public function removeFilter($filter_id)
+    {
+        if (false !== ($key = array_search($filter_id, $this->selectedFilters))) {
+            unset($this->selectedFilters[$key]);
+            $this->selectedFilters = array_values($this->selectedFilters);
+            $this->resetPage();
+        }
+    }
+
+    public function clearFilters()
+    {
+        $this->selectedFilters = [];
         $this->resetPage();
     }
 

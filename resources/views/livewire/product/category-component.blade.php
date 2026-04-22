@@ -37,6 +37,26 @@
                     </button>
 
                     <div class="collapse collapse-filters" id="collapseFilters">
+                        @if ($selectedFilters)
+                            <div class="selected-filters mb-3">
+                                @foreach ($filter_groups as $filter_group)
+                                    @foreach ($filter_group as $filter)
+                                        @if (in_array($filter->filter_id, $selectedFilters))
+                                            <button class="btn btn-outline-success m-1"
+                                                    wire:key="{{ $filter->filter_id }}"
+                                                    wire:click="removeFilter({{ $filter->filter_id }})">
+                                                <i class="fa-solid fa-xmark text-danger"></i>
+                                                {{ $filter->filter_title }}
+                                            </button>
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                            </div>
+
+                            <button class="btn btn-outline-warning w-100 mb-3" wire:click="clearFilters">Clear Filters
+                            </button>
+                        @endif
+
                         <div class="filter-block">
                             <h5 class="section-title"><span>Filter by Price</span>
                             </h5>
