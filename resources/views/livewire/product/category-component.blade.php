@@ -37,6 +37,20 @@
                     </button>
 
                     <div class="collapse collapse-filters" id="collapseFilters">
+                        <div class="filter-block">
+                            <h5 class="section-title"><span>Filter by Price</span>
+                            </h5>
+
+                            <div class="filter-price">
+                                <input type="number" class="form-control" placeholder="Min price"
+                                       value="{{ $min_price }}"
+                                       wire:model.live.debounce.500ms="min_price">
+                                <input type="number" class="form-control" placeholder="Max price"
+                                       value="{{ $max_price }}"
+                                       wire:model.live.debounce.500ms="max_price">
+                            </div>
+                        </div>
+
                         @foreach($filter_groups as $id => $filter_group)
                             <div class="filter-block" wire:key="{{ $id }}">
                                 <h5 class="section-title"><span>Filter by {{ $filter_group[0]->title }}</span></h5>
