@@ -14,9 +14,9 @@ class FilterSeeder extends Seeder
     public function run(): void
     {
         DB::table('filter_groups')->insert([
-            ['id' => 1, 'title' => 'Color'],
-            ['id' => 2, 'title' => 'Clothing size'],
-            ['id' => 3, 'title' => 'Shoe size'],
+            ['id' => 1, 'title' => 'Color', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 2, 'title' => 'Clothing size', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 3, 'title' => 'Shoe size', 'created_at' => now(), 'updated_at' => now()],
         ]);
 
         DB::table('category_filters')->insert([
@@ -31,22 +31,22 @@ class FilterSeeder extends Seeder
         ]);
 
         DB::table('filters')->insert([
-            ['id' => 1, 'title' => 'Black', 'filter_group_id' => 1],
-            ['id' => 2, 'title' => 'White', 'filter_group_id' => 1],
-            ['id' => 3, 'title' => 'Red', 'filter_group_id' => 1],
-            ['id' => 4, 'title' => 'Yellow', 'filter_group_id' => 1],
-            ['id' => 5, 'title' => 'XS', 'filter_group_id' => 2],
-            ['id' => 6, 'title' => 'S', 'filter_group_id' => 2],
-            ['id' => 7, 'title' => 'M', 'filter_group_id' => 2],
-            ['id' => 8, 'title' => 'L', 'filter_group_id' => 2],
-            ['id' => 9, 'title' => 'XL', 'filter_group_id' => 2],
-            ['id' => 10, 'title' => '37', 'filter_group_id' => 3],
-            ['id' => 11, 'title' => '38', 'filter_group_id' => 3],
-            ['id' => 12, 'title' => '39', 'filter_group_id' => 3],
-            ['id' => 13, 'title' => '40', 'filter_group_id' => 3],
-            ['id' => 14, 'title' => '41', 'filter_group_id' => 3],
-            ['id' => 15, 'title' => '42', 'filter_group_id' => 3],
-            ['id' => 16, 'title' => '43', 'filter_group_id' => 3],
+            ['id' => 1, 'title' => 'Black', 'filter_group_id' => 1, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 2, 'title' => 'White', 'filter_group_id' => 1, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 3, 'title' => 'Red', 'filter_group_id' => 1, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 4, 'title' => 'Yellow', 'filter_group_id' => 1, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 5, 'title' => 'XS', 'filter_group_id' => 2, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 6, 'title' => 'S', 'filter_group_id' => 2, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 7, 'title' => 'M', 'filter_group_id' => 2, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 8, 'title' => 'L', 'filter_group_id' => 2, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 9, 'title' => 'XL', 'filter_group_id' => 2, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 10, 'title' => '37', 'filter_group_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 11, 'title' => '38', 'filter_group_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 12, 'title' => '39', 'filter_group_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 13, 'title' => '40', 'filter_group_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 14, 'title' => '41', 'filter_group_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 15, 'title' => '42', 'filter_group_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 16, 'title' => '43', 'filter_group_id' => 3, 'created_at' => now(), 'updated_at' => now()],
         ]);
 
         DB::table('filter_products')->insert([
