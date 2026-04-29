@@ -38,3 +38,7 @@ toastr.options = {
     "showMethod": "slideDown",
     "hideMethod": "slideUp"
 }
+
+window.addEventListener('popstate', () => {
+    window.location.reload();
+})

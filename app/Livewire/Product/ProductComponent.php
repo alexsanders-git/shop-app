@@ -3,12 +3,15 @@
 namespace App\Livewire\Product;
 
 use App\Helpers\Category\Category;
+use App\Helpers\Traits\CartTrait;
 use App\Models\FilterGroup;
 use App\Models\Product;
 use Livewire\Component;
 
 class ProductComponent extends Component
 {
+    use CartTrait;
+
     public string $slug = '';
 
     public function mount(string $slug)
@@ -37,8 +40,6 @@ class ProductComponent extends Component
             ->where('filter_products.product_id', '=', $product->id)
             ->groupBy('filter_groups.title')
             ->get();
-
-        dump($attributes);
 
         return view('livewire.product.product-component', [
             'product' => $product,

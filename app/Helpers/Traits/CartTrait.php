@@ -6,11 +6,11 @@ use App\Helpers\Cart\Cart;
 
 trait CartTrait
 {
-    public int $quantity = 1;
+    public $quantity = 1;
 
     public function addToCart(int $id, $quantity = false): void
     {
-        $quantity = $quantity ? $this->quantity : 1;
+        $quantity = $quantity ? (int)$this->quantity : 1;
 
         $quantity = max($quantity, 1);
 
