@@ -12,10 +12,12 @@
                     @foreach($cart as $id => $item)
                         <tr wire:key="{{ $id }}">
                             <td class="product-img-td">
-                                <a href="#"><img src="{{ asset($item['image']) }}" alt=""></a>
+                                <a href="{{ route('product', $item['slug']) }}">
+                                    <img src="{{ asset($item['image']) }}" alt="">
+                                </a>
                             </td>
                             <td>
-                                <a href="#">{{ $item['title'] }}</a>
+                                <a href="{{ route('product', $item['slug']) }}">{{ $item['title'] }}</a>
                             </td>
                             <td>${{ $item['price'] }}</td>
                             <td>&times;{{ $item['quantity'] }}</td>

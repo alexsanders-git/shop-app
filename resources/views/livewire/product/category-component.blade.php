@@ -10,7 +10,7 @@
                             @if($loop->last)
                                 <li><span>{{ $title }}</span></li>
                             @else
-                                <li><a href="{{ route('category', $slug) }}">{{ $title }}</a></li>
+                                <li><a href="{{ route('category', $slug) }}" wire:navigate>{{ $title }}</a></li>
                             @endif
                         @endforeach
                     </ul>
