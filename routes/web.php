@@ -6,6 +6,7 @@ Route::get('/', App\Livewire\HomeComponent::class)->name('home');
 Route::get('/product/{slug}', App\Livewire\Product\ProductComponent::class)->name('product');
 Route::get('/category/{slug}', App\Livewire\Product\CategoryComponent::class)->name('category');
 Route::get('/cart', \App\Livewire\Cart\CartComponent::class)->name('cart');
+Route::get('/checkout', \App\Livewire\Cart\CheckoutComponent::class)->name('checkout');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', \App\Livewire\User\LoginComponent::class)->name('login');
