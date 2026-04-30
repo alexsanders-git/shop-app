@@ -38,6 +38,7 @@ class CheckoutComponent extends Component
 
         try {
             DB::beginTransaction();
+
             $order = Order::create($validated);
             $order_products = [];
             $cart = Cart::getCart();
@@ -55,14 +56,19 @@ class CheckoutComponent extends Component
 
             $order->orderProducts()->createMany($order_products);
 
-            // Mail::to($validated['email'])->send(new OrderClient($order_products, Cart::getCartTotal(), $order->id, $validated['note']));
-            // Mail::to('admin@shop-app.com')->send(new OrderManager($order->id));
+            DB::commit();
+
+            try {
+                Mail::to($validated['email'])->send(new OrderClient($order_products, Cart::getCartTotal(), $order->id, $validated['note']));
+                Mail::to('admin@shop-app.com')->send(new OrderManager($order->id));
+            } catch (\Exception $e) {
+                Log::error($e->getMessage());
+            }
 
             Cart::clearCart();
             $this->dispatch('cart-updated');
 
             $this->js("toastr.success('Order created')");
-            DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e->getMessage());

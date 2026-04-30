@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('email');
             $table->text('note')->nullable();
             $table->boolean('status')->default(false);
-            $table->unsignedTinyInteger('total');
+            $table->unsignedBigInteger('total');
             $table->timestamps();
         });
     }
