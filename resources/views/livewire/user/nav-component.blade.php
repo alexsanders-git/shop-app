@@ -22,7 +22,7 @@
                         </li>
                     @endif
                     <li>
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{{ route('account') }}">Profile</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
