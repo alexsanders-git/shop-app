@@ -20,7 +20,7 @@ class LoginComponent extends Component
         if (Auth::attempt($validated)) {
             session()->flash('success', 'Login successfully!');
 
-            $this->redirectRoute('home', navigate: true);
+            $this->redirectRoute('account', navigate: true);
         } else {
             $this->reset();
             $this->js("toastr.error('Login failed!')");

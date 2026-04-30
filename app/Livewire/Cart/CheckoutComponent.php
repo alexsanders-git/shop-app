@@ -55,8 +55,8 @@ class CheckoutComponent extends Component
 
             $order->orderProducts()->createMany($order_products);
 
-            Mail::to($validated['email'])->send(new OrderClient($order_products, Cart::getCartTotal(), $order->id, $validated['note']));
-            Mail::to('admin@shop-app.com')->send(new OrderManager($order->id));
+            // Mail::to($validated['email'])->send(new OrderClient($order_products, Cart::getCartTotal(), $order->id, $validated['note']));
+            // Mail::to('admin@shop-app.com')->send(new OrderManager($order->id));
 
             Cart::clearCart();
             $this->dispatch('cart-updated');

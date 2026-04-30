@@ -22,6 +22,17 @@
 
             <div class="col-lg-8 mb-3">
                 <div class="cart-content p-3 h-100 bg-white">
+                    <h5 class="section-title"><span>Account</span></h5>
+
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <p>Welcome, {{ auth()->user()->name }}!</p>
                 </div>
             </div>
