@@ -234,6 +234,40 @@ ul.social-icons a:hover {
     color: var(--contrast-color);
 }
 
+.search-form {
+    position: relative;
+}
+
+.search-clear {
+    position: absolute;
+    top: 8px;
+    right: 50px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.search-results {
+    position: absolute;
+    background: #fff;
+    z-index: 1025;
+    width: 100%;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.search-results a {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all .3s;
+}
+
+.search-results a:hover {
+    background: #f1f5f9;
+}
+
 .cart-buttons .btn {
     color: var(--contrast-color);
     transition: all .3s;
