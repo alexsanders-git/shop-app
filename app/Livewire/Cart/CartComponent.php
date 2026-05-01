@@ -13,6 +13,8 @@ class CartComponent extends Component
     #[On('cart-updated')]
     public function render()
     {
-        return view('livewire.cart.cart-component');
+        return view('livewire.cart.cart-component', [
+            'title' => 'Cart'
+        ]);
     }
 }

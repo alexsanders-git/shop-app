@@ -78,6 +78,8 @@ class CheckoutComponent extends Component
 
     public function render()
     {
-        return view('livewire.cart.checkout-component');
+        return view('livewire.cart.checkout-component', [
+            'title' => 'Checkout'
+        ]);
     }
 }

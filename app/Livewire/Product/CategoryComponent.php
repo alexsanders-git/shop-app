@@ -16,6 +16,7 @@ class CategoryComponent extends Component
     use WithPagination, CartTrait;
 
     public string $slug = '';
+    public string $categoryTitle = '';
 
     #[Url]
     public string $sort = 'default';
@@ -60,6 +61,13 @@ class CategoryComponent extends Component
         if (in_array($property[0], ['selectedFilters', 'min_price', 'max_price'])) {
             $this->resetPage();
         }
+    }
+
+    public function updatedPage($page)
+    {
+        $page_title = $page > 1 ? " :: page - {$page}" : " :: page - 1";
+
+        $this->dispatch('page-updated', title: config('app.name') . " | Category {$this->categoryTitle}$page_title");
     }
 
     public function changeSort()
@@ -137,9 +145,19 @@ class CategoryComponent extends Component
             ->orderBy($this->sortList[$this->sort]['order_field'], $this->sortList[$this->sort]['order_direction'])
             ->paginate($this->limit);
 
+        $page = request()->query('page', 1);
+
+        if ($page > $products->lastPage()) {
+            abort(404);
+        }
+
+        $this->categoryTitle = $category->title;
+        $title = "Category {$category->title}" . ($page ? " :: page - {$page}" : '');
+
         $breadcrumbs = \App\Helpers\Category\Category::getBreadcrumbs($category->id);
 
         return view('livewire.product.category-component', [
+            'title' => $title,
             'products' => $products,
             'category' => $category,
             'breadcrumbs' => $breadcrumbs,

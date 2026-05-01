@@ -8,7 +8,7 @@
             <ul class="dropdown-menu">
                 @guest
                     <li>
-                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                        <a class="dropdown-item" href="{{ route('login') }}" wire:navigate>Login</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{ route('register') }}" wire:navigate>Register</a>
@@ -22,7 +22,7 @@
                         </li>
                     @endif
                     <li>
-                        <a class="dropdown-item" href="{{ route('account') }}">Profile</a>
+                        <a class="dropdown-item" href="{{ route('account') }}" wire:navigate>Profile</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>

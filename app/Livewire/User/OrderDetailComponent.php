@@ -22,6 +22,7 @@ class OrderDetailComponent extends Component
             ->firstOrFail();
 
         return view('livewire.user.order-detail-component', [
+            'title' => 'Order #' . $order->id,
             'order' => $order,
         ]);
     }

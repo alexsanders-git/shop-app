@@ -42,6 +42,7 @@ class ProductComponent extends Component
             ->get();
 
         return view('livewire.product.product-component', [
+            'title' => $product->title,
             'product' => $product,
             'breadcrumbs' => $breadcrumbs,
             'related_products' => $related_products,

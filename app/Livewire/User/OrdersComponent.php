@@ -18,6 +18,7 @@ class OrdersComponent extends Component
             ->paginate(2);
 
         return view('livewire.user.orders-component', [
+            'title' => 'Orders',
             'orders' => $orders
         ]);
     }

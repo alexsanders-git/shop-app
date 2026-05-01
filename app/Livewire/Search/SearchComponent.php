@@ -29,6 +29,7 @@ class SearchComponent extends Component
         }
 
         return view('livewire.search.search-component', [
+            'title' => 'Search by: ' . $this->query,
             'products' => $products,
         ]);
     }

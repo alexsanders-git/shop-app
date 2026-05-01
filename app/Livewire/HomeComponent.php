@@ -25,6 +25,7 @@ class HomeComponent extends Component
             ->get();
 
         return view('livewire.home-component', [
+            'title' => 'Home',
             'hit_products' => $hit_products,
             'new_products' => $new_products,
         ]);

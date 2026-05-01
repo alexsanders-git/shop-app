@@ -1,4 +1,8 @@
 <div>
+    @section('meta')
+        <title>{{ config('app.name'). ' | ' . ($title ?? 'Page') }}</title>
+    @endsection
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -162,3 +166,11 @@
         </div>
     </div>
 </div>
+
+@script
+<script>
+    $wire.on('page-updated', data => {
+        document.title = data.title;
+    });
+</script>
+@endscript

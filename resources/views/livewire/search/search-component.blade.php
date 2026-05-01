@@ -1,4 +1,8 @@
 <div>
+    @section('meta')
+        <title>{{ config('app.name'). ' | ' . ($title ?? 'Page') }}</title>
+    @endsection
+
     <div class="container">
         <div class="row">
             <div class="col-12">
