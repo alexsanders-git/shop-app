@@ -24,3 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders', \App\Livewire\User\OrdersComponent::class)->name('orders');
     Route::get('/order-detail/{id}', \App\Livewire\User\OrderDetailComponent::class)->name('order-detail');
 });
+
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/', \App\Livewire\Admin\HomeComponent::class)->name('admin');
+});

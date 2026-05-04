@@ -18,7 +18,7 @@
                 @auth
                     @if(auth()->user()->is_admin)
                         <li>
-                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <a class="dropdown-item" href="{{ route('admin') }}">Dashboard</a>
                         </li>
                     @endif
                     <li>
