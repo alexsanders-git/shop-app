@@ -45,11 +45,16 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('admin') }}" wire:navigate>
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>{{ $title ?? 'Dashboard' }}</span></a>
+                <span>Dashboard</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.categories.index') }}" wire:navigate>
+                <i class="fa-solid fa-bars-staggered"></i>
+                <span>Categories</span></a>
         </li>
 
         <!-- Sidebar Toggler (Sidebar) -->
@@ -109,7 +114,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <h1 class="h3 mb-0 text-gray-800">{{ $title ?? 'Dashboard' }}</h1>
                 </div>
 
                 {{ $slot }}
