@@ -4,6 +4,8 @@ namespace App\Livewire\Admin\Category;
 
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -33,11 +35,26 @@ class CategoryIndexComponent extends Component
             return;
         }
 
-        $category->delete();
+        try {
+            DB::beginTransaction();
 
-        cache()->forget('categories_html');
-        session()->flash('success', 'Category removed successfully.');
-        $this->redirectRoute('admin.categories.index', navigate: true);
+            // Remove all filters group
+            DB::table('category_filters')
+                ->where('category_id', '=', $category->id)
+                ->delete();
+
+            $category->delete();
+
+            DB::commit();
+
+            cache()->forget('categories_html');
+            session()->flash('success', 'Category removed successfully.');
+            $this->redirectRoute('admin.categories.index', navigate: true);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e->getMessage());
+            $this->js("toastr.error('Error updating category')");
+        }
     }
 
     public function render()

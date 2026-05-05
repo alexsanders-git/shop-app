@@ -10,7 +10,12 @@
         <a href="{{ route('admin.categories.edit', $item['id']) }}" class="btn btn-warning" wire:navigate>
             <i class="fa-solid fa-pencil"></i>
         </a>
-        <button class="btn btn-danger" wire:click="deleteCategory({{ $item['id'] }})" wire:confirm="Are you sure?">
+        <button
+            class="btn btn-danger"
+            wire:click="deleteCategory({{ $item['id'] }})"
+            wire:confirm="Are you sure?"
+            wire:loading.attr="disabled"
+        >
             <i class="fa-solid fa-trash"></i>
         </button>
     </td>
