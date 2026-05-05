@@ -7,7 +7,7 @@
         <a href="{{ route('category', $item['slug']) }}" class="btn btn-info" target="_blank">
             <i class="fa-solid fa-eye"></i>
         </a>
-        <a href="{{ route('admin.categories.edit', $item['id']) }}" class="btn btn-warning">
+        <a href="{{ route('admin.categories.edit', $item['id']) }}" class="btn btn-warning" wire:navigate>
             <i class="fa-solid fa-pencil"></i>
         </a>
         <button class="btn btn-danger" wire:click="deleteCategory({{ $item['id'] }})" wire:confirm="Are you sure?">
