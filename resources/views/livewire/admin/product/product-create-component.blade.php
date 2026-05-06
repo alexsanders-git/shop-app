@@ -173,7 +173,7 @@
                         <label for="image" class="form-label">Image</label>
                         <input
                             type="file"
-                            class="@error('image') is-invalid @enderror"
+                            class="form-control @error('image') is-invalid @enderror"
                             id="image"
                             wire:model="image"
                         >
@@ -195,6 +195,44 @@
                                 width="100px"
                                 wire:click="removeUpload('image', '{{ $image->getFilename() }}')"
                             >
+                        @endif
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="gallery" class="form-label">Gallery</label>
+                        <input
+                            type="file"
+                            class="form-control @error('gallery.*') is-invalid @enderror"
+                            id="gallery"
+                            multiple
+                            wire:model="gallery"
+                        >
+                        @error('gallery.*')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
+                        <div wire:loading wire:target="gallery">
+                            <span class="text-success">Uploading...</span>
+                        </div>
+
+                        @if($gallery)
+                            <p class="text-danger">Click on the photo to delete it</p>
+                            <div class="mt-2">
+                                @foreach($gallery as $photo)
+                                    @if($photo->isPreviewable())
+                                        <img
+                                            src="{{ $photo->temporaryUrl() }}"
+                                            alt="preview"
+                                            width="100px"
+                                            wire:click="removeUpload('gallery', '{{ $photo->getFilename() }}')"
+                                        >
+                                    @else
+                                        <span class="text-danger">Error...</span>
+                                    @endif
+                                @endforeach
+                            </div>
                         @endif
                     </div>
 
