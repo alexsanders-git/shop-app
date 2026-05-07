@@ -155,6 +155,7 @@
 
                     <div class="mb-3">
                         <label for="summernote" class="form-label required">Content</label>
+                        <livewire:admin.file-manager.file-manager-component/>
                         <div wire:ignore>
                             <textarea
                                 class="form-control @error('content') is-invalid @enderror"
