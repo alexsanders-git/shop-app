@@ -24,7 +24,7 @@ class ProductEditComponent extends Component
     public string $title;
     public $category_id;
     public array $selectedFilters = [];
-    public string $excerpt;
+    public $excerpt;
     public string $content;
     public int $price = 0;
     public int $old_price = 0;
@@ -154,7 +154,6 @@ class ProductEditComponent extends Component
             session()->flash('success', 'Product updated successfully.');
             $this->redirectRoute('admin.products.index', navigate: true);
         } catch (\Exception $e) {
-
             DB::rollBack();
             Log::error($e->getMessage());
             $this->js("toastr.error('Error updating product')");
