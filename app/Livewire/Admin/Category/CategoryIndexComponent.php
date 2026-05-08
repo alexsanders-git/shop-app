@@ -53,7 +53,7 @@ class CategoryIndexComponent extends Component
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e->getMessage());
-            $this->js("toastr.error('Error updating category')");
+            $this->js("toastr.error('Error deleting category')");
         }
     }
 

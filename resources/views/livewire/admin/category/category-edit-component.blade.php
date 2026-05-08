@@ -38,8 +38,7 @@
                         </div>
                         @enderror
                     </div>
-
-
+                    
                     <div class="mb-3">
                         <div class="card">
                             <div class="card-header">Filters</div>

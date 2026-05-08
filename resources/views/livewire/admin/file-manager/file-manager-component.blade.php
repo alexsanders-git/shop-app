@@ -34,7 +34,7 @@
                                 wire:model="path"
                             >
                             <div class="input-group-append">
-                                <button class="btn btn-primary" wire:click="saveMedia">Save</button>
+                                <button type="button" class="btn btn-primary" wire:click="saveMedia">Save</button>
                             </div>
                         </div>
 
@@ -72,13 +72,14 @@
                                     <td>
                                         <div x-data="{ input: '{{ asset($item->path) }}', showMsg: false }">
                                             <div class="overflow-hidden">
-                                                <button
+                                                <a
+                                                    href="#"
                                                     class="btn btn-warning"
                                                     title="Copy URL"
                                                     @click="navigator.clipboard.writeText(input), showMsg = true, setTimeout(() => showMsg = false, 1000)"
                                                 >
                                                     <i class="fa-solid fa-copy"></i>
-                                                </button>
+                                                </a>
 
                                                 <p
                                                     class="media-copied"
