@@ -87,6 +87,12 @@
                 <span>Orders</span></a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.users.index') }}" wire:navigate>
+                <i class="fa-solid fa-users"></i>
+                <span>Users</span></a>
+        </li>
+
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -123,7 +129,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('admin.users.edit', auth()->id()) }}" wire:navigate>
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
