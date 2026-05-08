@@ -81,7 +81,6 @@ label.required::before {
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin: 0;
 }
 
 /* Hide default HTML checkbox */
@@ -137,4 +136,13 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.sidebar .nav-item .nav-link {
+    padding: .5rem 1rem;
+}
+
+.sidebar .nav-item .nav-link.active,
+.sidebar .nav-item .nav-link.active i {
+    color: #fff;
 }
